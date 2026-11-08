@@ -345,7 +345,7 @@ def aplicar_estilo():
 # Aplicación
 # ---------------------------------------------------------------------------
 def main():
-    st.set_page_config(page_title="Cinética y estabilidad", page_icon="⚛︎", layout="wide")
+    st.set_page_config(page_title="Cinética y estabilidad", page_icon="⌬", layout="wide")
     aplicar_estilo()
     st.title("🧪 Análisis cinético y predicción de estabilidad")
 
@@ -369,7 +369,7 @@ def main():
         ctx["unidad_t"], ctx["unidad_c"] = unidad_t, unidad_c
 
         st.download_button(
-            "⬇️ Descargar plantilla de Excel",
+            "⇩ Descargar plantilla de Excel",
             plantilla_excel(),
             file_name="plantilla_cinetica.xlsx",
             mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
@@ -726,41 +726,13 @@ def main():
 
     # ----------------------------------------------------------- CONCLUSIONES
     with tabs[5]:
-        st.subheader("Conclusiones automáticas")
+        st.subheader("Conclusiones:")
         if not datos_ok:
             st.info("Ingresa datos para generar conclusiones.")
         else:
             st.markdown("#### Conclusiones basadas en reglas (siempre disponibles)")
             for parrafo in conclusiones_reglas(ctx):
                 st.markdown(parrafo)
-
-            st.markdown("#### Conclusiones con IA (Claude)")
-            resumen = armar_resumen(ctx)
-            with st.expander("Ver el texto que se envía a la IA"):
-                st.code(PROMPT_IA + resumen, language="text")
-                st.caption("Puedes copiarlo y pegarlo en cualquier chat de IA si no tienes API key.")
-
-            clave = ""
-            try:
-                clave = st.secrets.get("ANTHROPIC_API_KEY", "")
-            except Exception:
-                clave = ""
-            clave = st.text_input(
-                "API key de Anthropic (no la subas a GitHub)", value=clave, type="password"
-            )
-            modelo = st.text_input("Modelo", "claude-sonnet-5-5")
-            if st.button("Generar conclusiones con IA"):
-                if not clave:
-                    st.warning("Falta la API key.")
-                else:
-                    with st.spinner("Generando…"):
-                        try:
-                            st.session_state.concl_ia = conclusiones_ia(resumen, clave, modelo)
-                        except Exception as e:
-                            st.error(f"No se pudo llamar a la IA: {e}")
-            if st.session_state.get("concl_ia"):
-                st.markdown(st.session_state.concl_ia)
-
 
 if __name__ == "__main__":
     main()
