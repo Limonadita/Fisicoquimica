@@ -16,6 +16,7 @@ from scipy import stats
 # Constantes y datos de ejemplo
 # ---------------------------------------------------------------------------
 R_GAS = 8.314462618  # J/(mol·K)
+FUENTE_GRAFICAS = "Nunito, sans-serif"  # fuente de títulos y ejes de las gráficas
 
 # tX = tiempo para que quede el X % de la concentración inicial
 # (t50 = vida media, t90 = vida útil, etc.)
@@ -177,6 +178,7 @@ def grafico_ajuste(x, y, pendiente, intercepto, r2, titulo, xlab, ylab):
         go.Scatter(x=xs, y=pendiente * xs + intercepto, mode="lines", name="Ajuste lineal")
     )
     fig.update_layout(
+        font=dict(family=FUENTE_GRAFICAS),
         title=f"{titulo}<br><sup>y = {pendiente:.4g}·x + {intercepto:.4g}  |  R² = {r2:.4f}</sup>",
         xaxis_title=xlab,
         yaxis_title=ylab,
@@ -319,6 +321,8 @@ PALETAS_CSS = {
 }
 
 CSS_ESTILO = Template("""<style>
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&display=swap');
+h1 { font-family: 'Dancing Script', cursive !important; font-size: 3.2rem !important; }
 button[data-baseweb="tab"] { border-radius: 8px 8px 0 0; transition: background-color .15s; }
 button[data-baseweb="tab"]:hover { background-color: $hover_tab !important; }
 button[data-baseweb="tab"]:hover p { color: $texto_tab !important; }
@@ -341,7 +345,7 @@ def aplicar_estilo():
 # Aplicación
 # ---------------------------------------------------------------------------
 def main():
-    st.set_page_config(page_title="Cinética y estabilidad", page_icon="🧪", layout="wide")
+    st.set_page_config(page_title="Cinética y estabilidad", page_icon="⚛︎", layout="wide")
     aplicar_estilo()
     st.title("🧪 Análisis cinético y predicción de estabilidad")
 
@@ -699,6 +703,7 @@ def main():
                     g1, g2 = st.columns(2)
                     fig_k = go.Figure(go.Scatter(x=pred["Temp"], y=pred["k"], mode="lines+markers"))
                     fig_k.update_layout(
+                        font=dict(family=FUENTE_GRAFICAS),
                         title="k predicha vs temperatura",
                         xaxis_title=f"Temperatura ({unidad_T})",
                         yaxis_title="k",
@@ -709,6 +714,7 @@ def main():
                     for n in FRACCIONES:
                         fig_t.add_trace(go.Scatter(x=pred["Temp"], y=pred[n], mode="lines+markers", name=n))
                     fig_t.update_layout(
+                        font=dict(family=FUENTE_GRAFICAS),
                         title="t50, t90, t95 y t98 vs temperatura",
                         xaxis_title=f"Temperatura ({unidad_T})",
                         yaxis_title=f"Tiempo ({unidad_t})",
