@@ -1,7 +1,5 @@
 """
-Herramienta inteligente para análisis cinético y predicción de estabilidad.
-
-Ejecutar:  streamlit run app.py
+Si la vida fuera estable todo el tiempo yo no beberia ni me malgastaria la plataaa
 """
 import io
 from string import Template
@@ -12,14 +10,13 @@ import plotly.graph_objects as go
 import streamlit as st
 from scipy import stats
 
-# ---------------------------------------------------------------------------
 # Constantes y datos de ejemplo
-# ---------------------------------------------------------------------------
-R_GAS = 8.314462618  # J/(mol·K)
+
+R_GAS = 8.314462618  # J/(mol.K)
 FUENTE_GRAFICAS = "Nunito, sans-serif"  # fuente de títulos y ejes de las gráficas
 
 # tX = tiempo para que quede el X % de la concentración inicial
-# (t50 = vida media, t90 = vida útil, etc.)
+# (t50 = vida media, t90 = vida útil, t95=, t=98)
 FRACCIONES = {"t50": 0.50, "t90": 0.90, "t95": 0.95, "t98": 0.98}
 NOMBRES_ORDEN = {0: "Orden cero", 1: "Orden uno", 2: "Orden dos"}
 TRANSFORMACIONES = {
@@ -50,16 +47,15 @@ def vacia_arrhenius():
         {"Temperatura": pd.Series(dtype=float), "k": pd.Series(dtype=float)}
     )
 
+# Comas y puntos
 
-# ---------------------------------------------------------------------------
-# Utilidades de datos
-# ---------------------------------------------------------------------------
 def a_numerico(serie):
     """Convierte una serie a números (acepta coma decimal)."""
     if not pd.api.types.is_numeric_dtype(serie):
         serie = serie.astype(str).str.replace(",", ".", regex=False).str.strip()
     return pd.to_numeric(serie, errors="coerce")
 
+# Archivo excel
 
 def leer_archivo(archivo, hoja_preferida):
     """Lee un Excel (hoja preferida o la primera) o un CSV."""
@@ -91,10 +87,8 @@ def parsear_lista(texto):
 def unidad_k(orden, ut, uc):
     return {0: f"{uc}/{ut}", 1: f"1/{ut}", 2: f"1/({uc}·{ut})"}[orden]
 
-
-# ---------------------------------------------------------------------------
 # Cálculos cinéticos
-# ---------------------------------------------------------------------------
+
 def ajustar_ordenes(t, c):
     """Método integral: regresión lineal para orden 0, 1 y 2."""
     resultados = {}
