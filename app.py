@@ -729,7 +729,8 @@ def main():
         st.subheader("Conclusiones:")
         if not datos_ok:
             st.info("Ingresa datos para generar conclusiones.")
-        
+        else:
+            
             for parrafo in conclusiones_reglas(ctx):
                 st.markdown(parrafo)
 
