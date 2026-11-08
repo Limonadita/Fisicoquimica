@@ -1,0 +1,25 @@
+# Guardar en el repositorio como:  .streamlit/config.toml
+
+[theme]
+# ---- FUENTES (cámbialas aquí) ----
+# Texto general:
+font = "Nunito:https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap"
+# Títulos y subtítulos:
+headingFont = "'Playfair Display':https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap"
+
+# ---- COLORES DE LAS GRÁFICAS (sirven en modo claro y oscuro) ----
+chartCategoricalColors = ["#d4719a", "#9c6b4e", "#7d5a8c", "#e0a35f", "#b5838d", "#604734"]
+
+# ---- MODO CLARO: paleta Neapolitan ----
+[theme.light]
+primaryColor = "#604734"
+backgroundColor = "#fcf7d9"
+secondaryBackgroundColor = "#f6d8d6"
+textColor = "#604734"
+
+# ---- MODO OSCURO: paleta rosa oscuro ----
+[theme.dark]
+primaryColor = "#e5a9bf"
+backgroundColor = "#241a22"
+secondaryBackgroundColor = "#372d36"
+textColor = "#fdd6dd"
