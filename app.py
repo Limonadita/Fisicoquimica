@@ -347,7 +347,7 @@ def aplicar_estilo():
 def main():
     st.set_page_config(page_title="Cinética y estabilidad", page_icon="⌬", layout="wide")
     aplicar_estilo()
-    st.title("🧪 Análisis cinético y predicción de estabilidad")
+    st.title("⌬ Análisis cinético y predicción de estabilidad")
 
     if "base_cin" not in st.session_state:
         st.session_state.base_cin = EJEMPLO_CINETICA.copy()
