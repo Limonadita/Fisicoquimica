@@ -1,5 +1,5 @@
 """
-Si la vida fuera estable todo el tiempo yo no beberia ni me malgastaria la plataaa
+Profe por fa tenganos fe nos esforzamos mucho </3
 """
 import io
 from string import Template
