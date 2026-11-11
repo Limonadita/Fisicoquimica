@@ -161,9 +161,8 @@ def ajustar_arrhenius(temp, k, unidad):
     }
 
 
-# ---------------------------------------------------------------------------
+
 # Gráficos
-# ---------------------------------------------------------------------------
 def grafico_ajuste(x, y, pendiente, intercepto, r2, titulo, xlab, ylab):
     xs = np.linspace(np.min(x), np.max(x), 50)
     fig = go.Figure()
@@ -182,9 +181,10 @@ def grafico_ajuste(x, y, pendiente, intercepto, r2, titulo, xlab, ylab):
     return fig
 
 
-# ---------------------------------------------------------------------------
-# Conclusiones (reglas + IA)
-# ---------------------------------------------------------------------------
+
+# Conclusiones 
+
+
 def armar_resumen(ctx):
     ut, uc = ctx["unidad_t"], ctx["unidad_c"]
     L = []
@@ -270,33 +270,13 @@ def conclusiones_reglas(ctx):
             "Las predicciones fuera del rango de temperaturas experimentales son extrapolaciones."
         )
     return P
-
-
-PROMPT_IA = (
-    "Eres un experto en cinética química y estudios de estabilidad. A partir de los siguientes "
-    "resultados, redacta conclusiones claras en español (máximo 200 palabras): qué orden de "
-    "reacción es más probable y por qué, qué significan k, t50 y t90 para la estabilidad, qué "
-    "indica la energía de activación sobre la sensibilidad a la temperatura, y recomendaciones de "
-    "almacenamiento. Señala limitaciones (pocos datos, extrapolación, R² bajo) si las hay.\n\n"
-    "RESULTADOS:\n"
-)
-
-
-def conclusiones_ia(resumen, api_key, modelo):
-    import anthropic
-
-    cliente = anthropic.Anthropic(api_key=api_key)
-    r = cliente.messages.create(
-        model=modelo,
-        max_tokens=1000,
-        messages=[{"role": "user", "content": PROMPT_IA + resumen}],
-    )
     return "".join(b.text for b in r.content if getattr(b, "type", "") == "text")
 
 
+
+# Estilo visual: hover y pestañas 
 # ---------------------------------------------------------------------------
-# Estilo visual: hover y pestañas (el resto está en .streamlit/config.toml)
-# ---------------------------------------------------------------------------
+
 PALETAS_CSS = {
     "light": {  # Neapolitan
         "acento": "#604734",       # chocolate: pestaña activa y subrayado
@@ -334,8 +314,6 @@ def aplicar_estilo():
         tema = "light"
     st.markdown(CSS_ESTILO.substitute(PALETAS_CSS[tema]), unsafe_allow_html=True)
 
-
-# ---------------------------------------------------------------------------
 # Aplicación
 # ---------------------------------------------------------------------------
 def main():
@@ -363,7 +341,7 @@ def main():
         ctx["unidad_t"], ctx["unidad_c"] = unidad_t, unidad_c
 
         st.download_button(
-            "⇩ Descargar plantilla de Excel",
+            "⇩ Descargar plantilla de Excel de ejemplo",
             plantilla_excel(),
             file_name="plantilla_cinetica.xlsx",
             mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
