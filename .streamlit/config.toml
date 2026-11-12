@@ -14,11 +14,11 @@ chartCategoricalColors = ["#d4719a", "#9c6b4e", "#7d5a8c", "#e0a35f", "#b5838d",
 [theme.light]
 primaryColor = "#16587B"
 backgroundColor = "#F0ECCD"
-secondaryBackgroundColor = "#F5EEDD"
+secondaryBackgroundColor = "#8BA3C5"
 textColor = "#16587B"
 # Cuadros de mensaje: verde = éxito, amarillo = advertencia, azul = información, rojo = error
-greenColor = "#8BA3C5"
-greenBackgroundColor = "#8BA3CS"
+greenColor = "#84B3CE"
+greenBackgroundColor = "#84B3CE"
 greenTextColor = "#16587B"
 yellowColor = "#e0a35f"
 yellowBackgroundColor = "#f1deb0"
