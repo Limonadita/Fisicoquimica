@@ -295,7 +295,7 @@ PALETAS_CSS = {
 }
 
 CSS_ESTILO = Template("""<style>
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&display=swap');
+@import url('Nunito:https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
 h1 { font-family: 'Dancing Script', cursive !important; font-size: 3.2rem !important; }
 button[data-baseweb="tab"] { border-radius: 8px 8px 0 0; transition: background-color .15s; }
 button[data-baseweb="tab"]:hover { background-color: $hover_tab !important; }
