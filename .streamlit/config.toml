@@ -33,7 +33,7 @@ redTextColor = "#7a2e3a"
 # ---- MODO OSCURO: paleta rosa oscuro ----
 [theme.dark]
 primaryColor = "#3F6593"
-backgroundColor = "#00F22"
+backgroundColor = "#000F22"
 secondaryBackgroundColor = "#1B3554"
 textColor = "#80AAD3"
 # Cuadros de mensaje: verde = éxito, amarillo = advertencia, azul = información, rojo = error
