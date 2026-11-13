@@ -282,7 +282,7 @@ PALETAS_CSS = {
         "acento": "#165677",       # chocolate: pestaña activa y subrayado
         "hover_tab": "#BBDAD5",    # fondo al pasar el mouse sobre una pestaña
         "texto_tab": "#07021F",
-        "hover_boton": "#07021F",  # fondo al pasar el mouse sobre un botón
+        "hover_boton": "#BBDAD5",  # fondo al pasar el mouse sobre un botón
         "texto_boton": "#07021F",
     },
     "dark": {  # Rosa oscuro
