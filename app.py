@@ -279,11 +279,11 @@ def conclusiones_reglas(ctx):
 
 PALETAS_CSS = {
     "light": {  # Neapolitan
-        "acento": "#604734",       # chocolate: pestaña activa y subrayado
-        "hover_tab": "#f6d8d6",    # fondo al pasar el mouse sobre una pestaña
-        "texto_tab": "#604734",
-        "hover_boton": "#f0c5d4",  # fondo al pasar el mouse sobre un botón
-        "texto_boton": "#604734",
+        "acento": "#165677",       # chocolate: pestaña activa y subrayado
+        "hover_tab": "#BBDAD5",    # fondo al pasar el mouse sobre una pestaña
+        "texto_tab": "#07021F",
+        "hover_boton": "#07021F",  # fondo al pasar el mouse sobre un botón
+        "texto_boton": "#07021F",
     },
     "dark": {  # Rosa oscuro
         "acento": "#e5a9bf",
