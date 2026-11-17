@@ -3,7 +3,7 @@
 [theme]
 # ---- FUENTES (cámbialas aquí) ----
 # Texto general:
-font = "Nunito:https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap"
+font = "Nunito:https://fonts.google.com/specimen/Libre+Baskerville?preview.script=Latn"
 # Títulos y subtítulos:
 headingFont = "Nunito:https://fonts.google.com/specimen/Libre+Baskerville?preview.script=Latn"
 
