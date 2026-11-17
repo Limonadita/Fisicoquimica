@@ -5,7 +5,7 @@
 # Texto general:
 font = "Nunito:https://fonts.google.com/share?selection.family=Libre+Baskerville:ital,wght@0,400..700;1,400..700"
 # Títulos y subtítulos:
-headingFont = "https://fonts.google.com/specimen/Libre+Baskerville?preview.script=Latn"
+headingFont = "Nunito:https://fonts.google.com/specimen/Libre+Baskerville?preview.script=Latn"
 
 # ---- COLORES DE LAS GRÁFICAS (sirven en modo claro y oscuro) ----
 chartCategoricalColors = ["#d4719a", "#9c6b4e", "#7d5a8c", "#e0a35f", "#b5838d", "#604734"]
